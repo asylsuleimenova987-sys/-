@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>HTML</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Басты</a>
+    <a href="python.html">Python</a>
+    <a href="html.html">HTML</a>
+    <a href="logic.html">Логика</a>
+  </nav>
+
+  <h1>HTML негіздері</h1>
+  <p>Веб бет кіріктірілген тегтерден тұрады. Көбі жұп тегтер:
+     <code>&lt;p&gt;</code> ашады, <code>&lt;/p&gt;</code> жабады.</p>
+
+  <h2>Басты тегтер</h2>
+  <ul>
+    <li><code>&lt;h1&gt;</code>…<code>&lt;h6&gt;</code>: бөлімдер</li>
+    <li><code>&lt;p&gt;</code>: абзац</li>
+    <li><code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>: ерекшелеу</li>
+    <li><code>&lt;a href="адрес"&gt;</code>: сілтеме</li>
+    <li><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>: тізім</li>
+    <li><code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>: кестелер</li>
+  </ul>
+
+  <div class="box">
+    <b>Оқшауланған орта:  кодты өзгерт, нәтижесін көр </b>
+    <textarea id="code"><h1>Менің веб бетім</h1>
+<p>Бұл <strong>маңызды</strong> сөз.</p>
+<ul>
+  <li>Алма</li>
+  <li>Алмұрт</li>
+</ul></textarea>
+    <iframe id="result"></iframe>
+  </div>
+
+  <script>
+    var code = document.getElementById("code");
+    var result = document.getElementById("result");
+
+    function update() {
+      result.srcdoc = code.value;
+    }
+
+    code.oninput = update;
+    update();
+  </script>
+</body>
+</html>

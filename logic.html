@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Логика</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Басты</a>
+    <a href="python.html">Python</a>
+    <a href="html.html">HTML</a>
+    <a href="logic.html">Логика</a>
+  </nav>
+
+  <h1>Логика негіздері</h1>
+  <p><b>and</b> ақиқат, егер екеуі де ақиқат болса.
+     <b>not</b> мәнің теріске шығарады.</p>
+  <p>Басымдық: not, кейін and, одан кейін or. Жақшалар амалдардың орындалу ретін өзгертеді.</p>
+  <p>де Морган заңы:<br>
+     <code>not (a and b)</code> = <code>not a or not b</code><br>
+     <code>not (a or b)</code> = <code>not a and not b</code></p>
+
+  <div class="box">
+    <b>Ақиқат кестесі</b> (айнымалылар a, b, c; and, or, not сөздері)
+    <input id="expr" value="a and (not b or c)">
+    <button onclick="build()">Құра</button>
+    <div id="out"></div>
+  </div>
+
+  <script>
+    function build() {
+      var text = document.getElementById("expr").value.toLowerCase();
+      text = text.replace(/not/g, "!").replace(/and/g, "&&").replace(/or/g, "||");
+      var out = document.getElementById("out");
+      try {
+        var f = new Function("a", "b", "c", "return " + text);
+        var html = "<table><tr><th>a</th><th>b</th><th>c</th><th>результат</th></tr>";
+        for (var i = 0; i < 8; i++) {
+          var a = (i >> 2) & 1;
+          var b = (i >> 1) & 1;
+          var c = i & 1;
+          var r = f(a, b, c) ? 1 : 0;
+          html += "<tr><td>" + a + "</td><td>" + b + "</td><td>" + c +
+                  "</td><td><b>" + r + "</b></td></tr>";
+        }
+        out.innerHTML = html + "</table>";
+      } catch (e) {
+        out.textContent = "Өрнектегі қате";
+      }
+    }
+    build();
+  </script>
+</body>
+</html>

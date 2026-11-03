@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Python</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Басты</a>
+    <a href="python.html">Python</a>
+    <a href="html.html">HTML</a>
+    <a href="logic.html">Логика</a>
+  </nav>
+
+  <h1>Python негіздері</h1>
+
+  <h2>1. Айнымалылар</h2>
+  <p>= белгісі «айнымалыға мәнді меншіктеу» дегенді білдіреді. Тең емес</p>
+  <pre>name = "Аня"   # жол
+age = 12       # бүтін сан
+pi = 3.14      # бөлшек сан
+ok = True      # ақиқат/жалған</pre>
+
+  <div class="box">
+    <b>Программа нәтижесінде не шығады?</b>
+    <pre>x = 5
+y = x * 2
+x = 1
+print(x + y)</pre>
+    <input id="a1" placeholder="Сіздің жауабыңыз">
+    <button onclick="check('a1', '11', 'r1')">Тексер</button>
+    <div id="r1"></div>
+  </div>
+
+  <script>
+    function check(inputId, answer, resultId) {
+      var v = document.getElementById(inputId).value.trim().toLowerCase();
+      var r = document.getElementById(resultId);
+      if (v === answer) {
+        r.textContent = "Дұрыс!";
+      } else {
+        r.textContent = "Әзірше жоқ, тағы да қайталап көр";
+      }
+    }
+  </script>
+</body>
+</html>
